@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.post.title} | John Doe's Blog</title>
+	<title>{data.post.title} | Bhanu Teja's Blog</title>
 </svelte:head>
 
 <article class="mx-auto max-w-2xl">

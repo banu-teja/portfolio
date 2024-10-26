@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>Blog | John Doe</title>
+	<title>Blog | Bhanu Teja</title>
 </svelte:head>
 
 <main>

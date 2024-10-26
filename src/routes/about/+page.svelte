@@ -12,7 +12,7 @@
 </script>
 
 <svelte:head>
-	<title>About | John Doe</title>
+	<title>About | Bhanu Teja</title>
 </svelte:head>
 
 <main>
@@ -20,7 +20,7 @@
 
 	<section class="mb-12">
 		<p class="mb-4 text-gray-600">
-			Hello! I'm John Doe, a passionate developer and designer with over 5 years of experience in
+			Hello! I'm Bhanu Teja, a passionate developer and designer with over 5 years of experience in
 			creating beautiful, functional web experiences. I specialize in front-end development with a
 			focus on React and Svelte, but I'm also comfortable working with back-end technologies.
 		</p>

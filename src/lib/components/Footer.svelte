@@ -1,6 +1,6 @@
 <footer class="border-t border-gray-200 pt-8">
 	<div class="flex items-center justify-between">
-		<p class="text-sm text-gray-500">&copy; 2023 John Doe. All rights reserved.</p>
+		<p class="text-sm text-gray-500">&copy; 2023 Bhanu Teja. All rights reserved.</p>
 		<div class="flex space-x-4">
 			<a href="#" class="text-gray-400 hover:text-gray-500">
 				<span class="sr-only">Twitter</span>

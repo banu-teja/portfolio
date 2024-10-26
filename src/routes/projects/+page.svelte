@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Projects | John Doe</title>
+	<title>Projects | Bhanu Teja</title>
 </svelte:head>
 
 <main>

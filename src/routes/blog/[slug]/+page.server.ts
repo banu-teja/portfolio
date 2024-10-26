@@ -13,7 +13,13 @@ export const load: PageServerLoad = async ({ params }) => {
 
 	const compiledContent = await compile(content, {
 		remarkPlugins: [],
-		rehypePlugins: []
+		rehypePlugins: [],
+		highlight: {
+			highlighter: (code, lang) => {
+				// Return pre-rendered HTML for code blocks
+				return `<pre class="language-${lang}-banu"><code class="language-${lang}">${code}</code></pre>`;
+			}
+		}
 	});
 
 	if (!compiledContent) {
@@ -28,6 +34,8 @@ export const load: PageServerLoad = async ({ params }) => {
 		readingTime: data.readingTime,
 		content: compiledContent.code
 	};
+
+	console.log(post);
 
 	return {
 		post
