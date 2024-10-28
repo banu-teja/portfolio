@@ -18,7 +18,7 @@ export async function getPosts(): Promise<Omit<Post, 'content'>[]> {
 	const slugs = await readdir(postsDirectory);
 	const posts = await Promise.all(
 		slugs.map(async (slug) => {
-			const post = await getPost(slug.replace('.mdx', ''));
+			const post = await getPost(slug.replace('.md', ''));
 			return {
 				slug: post.slug,
 				title: post.title,
@@ -33,7 +33,7 @@ export async function getPosts(): Promise<Omit<Post, 'content'>[]> {
 }
 
 export async function getPost(slug: string): Promise<Post> {
-	const filePath = join(postsDirectory, `${slug}.mdx`);
+	const filePath = join(postsDirectory, `${slug}.md`);
 
 	try {
 		const fileContent = await readFile(filePath, 'utf-8');

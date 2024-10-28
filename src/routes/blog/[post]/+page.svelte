@@ -1,11 +1,13 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	const { data }: { data: { PostContent: any; meta: any } } = $props();
 
-	export let data: PageData;
+	const { title, excerpt, date, updated, coverImage, coverWidth, coverHeight, categories } =
+		data.meta;
+	const { PostContent } = data;
 </script>
 
 <svelte:head>
-	<title>{data.post.title} | Bhanu Teja's Blog</title>
+	<title>{title} | Bhanu Teja's Blog</title>
 </svelte:head>
 
 <article class="mx-auto max-w-2xl">
@@ -18,6 +20,6 @@
 	</header>
 
 	<div class="prose prose-lg">
-		{@html data.post.content}
+		<PostContent />
 	</div>
 </article>
