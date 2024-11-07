@@ -1,0 +1,7 @@
+name = "portfolio"
+account_id = "89dc1f6511deb4895b78ad46555d682d"
+workers_dev = true
+compatibility_date = "2024-11-07"
+
+[site]
+bucket = ".svelte-kit/cloudflare"

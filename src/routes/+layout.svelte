@@ -8,6 +8,7 @@
 	import { navItems } from '$lib/config';
 	import { onMount } from 'svelte';
 	import { setPage } from '$lib/stores';
+	import ChatWindow from '$lib/components/ChatWindow.svelte';
 
 	let { children, data } = $props();
 
@@ -53,6 +54,8 @@
 	{/key}
 	<Footer />
 </div>
+
+<ChatWindow />
 
 <!-- <div class="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-8 bg-white text-gray-900">
 	<main class="max-w-[60ch] mx-auto w-full space-y-6">

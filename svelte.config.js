@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-cloudflare';
 import { mdsvex } from 'mdsvex';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
@@ -20,19 +20,23 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter(),
-		prerender: {
-			entries: [
-				'*',
-				'/api/posts/page/*',
-				'/blog/category/*/page/',
-				'/blog/category/*/page/*',
-				'/blog/category/page/',
-				'/blog/category/page/*',
-				'/blog/page/',
-				'/blog/page/*'
-			]
-		}
+		adapter: adapter()
+		// prerender: {
+		// 	handleHttpErrors: 'warn'
+		// }
+
+		// prerender: {
+		// 	entries: [
+		// 		'*',
+		// 		'/api/posts/page/*',
+		// 		'/blog/category/*/page/',
+		// 		'/blog/category/*/page/*',
+		// 		'/blog/category/page/',
+		// 		'/blog/category/page/*',
+		// 		'/blog/page/',
+		// 		'/blog/page/*'
+		// 	]
+		// }
 	},
 	extensions: ['.svelte', '.md', '.mdx', '.svx']
 };
