@@ -1,8 +1,8 @@
-<footer class="border-t border-gray-200 pt-8">
+<footer class="border-t border-gray-200 py-8">
 	<div class="flex items-center justify-between">
-		<p class="text-sm text-gray-500">&copy; 2023 Bhanu Teja. All rights reserved.</p>
+		<p class="text-sm text-gray-500">&copy; 2024 Bhanu Teja.</p>
 		<div class="flex space-x-4">
-			<a href="#" class="text-gray-400 hover:text-gray-500">
+			<a href="https://x.com/bhanuteja_naidu" class="text-gray-400 hover:text-gray-500">
 				<span class="sr-only">Twitter</span>
 				<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 					<path
@@ -10,7 +10,7 @@
 					></path>
 				</svg>
 			</a>
-			<a href="#" class="text-gray-400 hover:text-gray-500">
+			<a href="https://github.com/banu-teja" class="text-gray-400 hover:text-gray-500">
 				<span class="sr-only">GitHub</span>
 				<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 					<path
@@ -20,7 +20,7 @@
 					></path>
 				</svg>
 			</a>
-			<a href="#" class="text-gray-400 hover:text-gray-500">
+			<a href="https://www.linkedin.com/in/bhanutejap/" class="text-gray-400 hover:text-gray-500">
 				<span class="sr-only">LinkedIn</span>
 				<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
 					<path

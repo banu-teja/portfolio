@@ -40,20 +40,25 @@
 	/> -->
 </svelte:head>
 
-<div class="mx-auto max-w-2xl px-4 py-12 sm:px-6 lg:px-8">
-	<Header />
-	{#key data.path}
-		<main
-			id="main"
-			tabindex="-1"
-			in:fade={{ delay: 150, duration: 150 }}
-			out:fade={{ duration: 100 }}
-		>
-			{@render children()}
-		</main>
-	{/key}
-	<Footer />
+<div class="min-h-screen flex flex-col">
+	<div class="mx-auto max-w-2xl w-full px-4 py-12 sm:px-6 lg:px-8 flex-grow">
+		<Header />
+		{#key data.path}
+			<main
+				id="main"
+				tabindex="-1"
+				in:fade={{ delay: 150, duration: 150 }}
+				out:fade={{ duration: 100 }}
+			>
+				{@render children()}
+			</main>
+		{/key}
+	</div>
+	<div class="mx-auto max-w-2xl w-full px-4 sm:px-6 lg:px-8">
+		<Footer />
+	</div>
 </div>
+
 
 <ChatWindow />
 

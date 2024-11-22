@@ -15,7 +15,11 @@ export function entries() {
 	];
 }
 
-export const load = async ({ fetch, params }) => {
-	// Your existing load function here
-	// ...
+export const load: PageServerLoad = async () => {
+	// const postsDirectory = path.join(process.cwd(), 'src/posts');
+	const posts: BlogPost[] = [];
+
+	return {
+		posts: posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+	};
 };

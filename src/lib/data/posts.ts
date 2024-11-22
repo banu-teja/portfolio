@@ -7,7 +7,7 @@ export const posts = [
 	{
 		id: 2,
 		title: 'The Power of TailwindCSS',
-		excerpt: 'Exploring the benefits of utility-first CSS frameworks.'
+		excerpt: 'Exploring the benefits of utility-fir	st CSS frameworks.'
 	}
 	// Add more posts as needed
 ];
