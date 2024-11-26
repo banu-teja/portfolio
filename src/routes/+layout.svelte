@@ -17,6 +17,13 @@
 	onMount(() => {
 		navItems.map((item) => item.route).forEach(preloadCode);
 	});
+
+	let showBanner = $state(true);
+
+	const dismissBanner = () => {
+		showBanner = false;
+	};
+
 </script>
 
 <svelte:head>
@@ -40,8 +47,23 @@
 	/> -->
 </svelte:head>
 
-<div class="min-h-screen flex flex-col">
-	<div class="mx-auto max-w-2xl w-full px-4 py-12 sm:px-6 lg:px-8 flex-grow">
+<div class="flex min-h-screen flex-col">
+	{#if showBanner}
+		<div class="bg-yellow-100 border-b border-yellow-200 text-yellow-700 px-4 py-3 sm:px-6 lg:px-8 text-center">
+			<div class="flex items-center justify-center">
+				<p class="text-sm font-medium">
+					This portfolio is under active development. Expect awesome things soon! ✨
+				</p>
+				<span class="ml-2 cursor-pointer" on:click|preventDefault={dismissBanner} role="button" title="Dismiss">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18-18M6 6l12 12" />
+          </svg>
+        </span>
+			</div>
+		</div>
+	{/if}
+
+	<div class="mx-auto w-full max-w-2xl flex-grow px-4 py-12 sm:px-6 lg:px-8">
 		<Header />
 		{#key data.path}
 			<main
@@ -54,11 +76,10 @@
 			</main>
 		{/key}
 	</div>
-	<div class="mx-auto max-w-2xl w-full px-4 sm:px-6 lg:px-8">
+	<div class="mx-auto w-full max-w-2xl px-4 sm:px-6 lg:px-8">
 		<Footer />
 	</div>
 </div>
-
 
 <ChatWindow />
 
