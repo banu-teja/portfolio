@@ -4,16 +4,27 @@
 	export let comments: Comment[];
 </script>
 
-<div class="border-charcoal-200 mb-12 border-t pt-8">
-	<h3 class="text-charcoal-800 mb-6 font-serif text-2xl font-bold">Comments ({comments.length})</h3>
+<div class="border-t border-border pt-12 mb-12">
+	<h3 class="text-foreground mb-8 text-2xl font-bold">Comments ({comments.length})</h3>
 	<div class="space-y-8">
 		{#each comments as comment}
-			<div class="flex space-x-4">
-				<img src={comment.avatar} alt="{comment.name}'s Avatar" class="h-12 w-12 rounded-full" />
-				<div>
-					<h4 class="text-charcoal-800 font-semibold">{comment.name}</h4>
-					<p class="text-charcoal-500 mb-2 text-sm">{comment.date}</p>
-					<p class="text-charcoal-600">{comment.content}</p>
+			<div class="group flex gap-4 p-4 transition-colors hover:bg-surface/50">
+				<div class="flex-shrink-0">
+					<img
+						src={comment.avatar}
+						alt="{comment.name}"
+						class="h-10 w-10 rounded-full ring-2 ring-border"
+						loading="lazy"
+					/>
+				</div>
+				<div class="flex-1">
+					<div class="flex items-center justify-between mb-2">
+						<h4 class="font-bold text-foreground transition-colors">{comment.name}</h4>
+						<time class="text-xs text-muted-foreground font-mono">{comment.date}</time>
+					</div>
+					<p class="text-muted-foreground leading-relaxed text-sm transition-colors">
+						{comment.content}
+					</p>
 				</div>
 			</div>
 		{/each}

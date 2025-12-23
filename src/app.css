@@ -2,4 +2,72 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* Repeat for other weights */
+@layer base {
+  :root {
+    /* Default to Dark Mode variables (User seems to prefer dark, but wants option)
+       actually, typically :root is light and .dark is dark, but let's see.
+       If we want system preference, we should use @media (prefers-color-scheme: dark).
+       However, Tailwind's `darkMode: 'class'` expects a class.
+       Let's define variables for Light Mode in :root and Dark Mode in .dark.
+    */
+
+    /* Light Mode */
+    --background: 255 255 255; /* #ffffff */
+    --surface: 244 244 245;    /* #f4f4f5 (Zinc 100) */
+    --surface-highlight: 228 228 231; /* #e4e4e7 (Zinc 200) */
+    --border: 228 228 231;     /* #e4e4e7 (Zinc 200) */
+
+    --primary: 24 24 27;       /* #18181b (Zinc 900) - Text/Headings */
+    --primary-foreground: 255 255 255; /* #ffffff */
+
+    --secondary: 244 244 245;  /* #f4f4f5 (Zinc 100) */
+    --secondary-foreground: 24 24 27; /* #18181b */
+
+    --muted: 113 113 122;      /* #71717a (Zinc 500) */
+    --muted-foreground: 82 82 91; /* #52525b (Zinc 600) */
+
+    --radius: 0rem; /* Sharp edges as requested */
+  }
+
+  .dark {
+    /* Dark Mode */
+    --background: 0 0 0;       /* #000000 */
+    --surface: 10 10 10;       /* #0a0a0a */
+    --surface-highlight: 23 23 23; /* #171717 */
+    --border: 38 38 38;        /* #262626 */
+
+    --primary: 255 255 255;    /* #ffffff */
+    --primary-foreground: 0 0 0; /* #000000 */
+
+    --secondary: 23 23 23;     /* #171717 */
+    --secondary-foreground: 255 255 255; /* #ffffff */
+
+    --muted: 115 115 115;      /* #737373 */
+    --muted-foreground: 163 163 163; /* #a3a3a3 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-primary antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom Scrollbar - Minimal */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--border));
+    border-radius: 0px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--muted));
+  }
+}

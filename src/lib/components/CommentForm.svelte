@@ -3,9 +3,11 @@
 	let email = $state('');
 	let comment = $state('');
 
-	function handleSubmit() {
-		// Handle form submission
+	function handleSubmit(event: Event) {
+		event.preventDefault();
+		// Handle form submission logic here
 		console.log({ name, email, comment });
+
 		// Reset form
 		name = '';
 		email = '';
@@ -13,40 +15,50 @@
 	}
 </script>
 
-<div class="bg-charcoal-50 rounded-lg p-6">
-	<h3 class="text-charcoal-800 mb-4 font-serif text-xl font-bold">Leave a Comment</h3>
-	<form method="POST" action="logout">
-		<div class="mb-4">
-			<label for="name" class="text-charcoal-700 mb-1 block text-sm font-medium">Name</label>
-			<input
-				type="text"
-				id="name"
-				bind:value={name}
-				class="border-charcoal-300 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-			/>
+<div class="border border-border bg-surface p-6 md:p-8">
+	<h3 class="text-xl font-bold text-foreground mb-6">Leave a Comment</h3>
+	<form onsubmit={handleSubmit} class="space-y-4">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+			<div class="space-y-2">
+				<label for="name" class="block text-xs font-medium uppercase tracking-wider text-muted-foreground">Name</label>
+				<input
+					type="text"
+					id="name"
+					bind:value={name}
+					class="w-full rounded-none border border-border bg-background px-4 py-3 text-foreground placeholder-muted-foreground/50 transition-all focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+					placeholder="John Doe"
+				/>
+			</div>
+			<div class="space-y-2">
+				<label for="email" class="block text-xs font-medium uppercase tracking-wider text-muted-foreground">Email</label>
+				<input
+					type="email"
+					id="email"
+					bind:value={email}
+					class="w-full rounded-none border border-border bg-background px-4 py-3 text-foreground placeholder-muted-foreground/50 transition-all focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+					placeholder="john@example.com"
+				/>
+			</div>
 		</div>
-		<div class="mb-4">
-			<label for="email" class="text-charcoal-700 mb-1 block text-sm font-medium">Email</label>
-			<input
-				type="email"
-				id="email"
-				bind:value={email}
-				class="border-charcoal-300 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-			/>
-		</div>
-		<div class="mb-4">
-			<label for="comment" class="text-charcoal-700 mb-1 block text-sm font-medium">Comment</label>
+
+		<div class="space-y-2">
+			<label for="comment" class="block text-xs font-medium uppercase tracking-wider text-muted-foreground">Comment</label>
 			<textarea
 				id="comment"
 				bind:value={comment}
 				rows="4"
-				class="border-charcoal-300 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+				class="w-full rounded-none border border-border bg-background px-4 py-3 text-foreground placeholder-muted-foreground/50 transition-all focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary resize-none"
+				placeholder="Share your thoughts..."
 			></textarea>
 		</div>
-		<button
-			type="submit"
-			class="rounded-full bg-emerald-500 px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-emerald-600"
-			>Post Comment</button
-		>
+
+		<div class="pt-2">
+			<button
+				type="submit"
+				class="inline-flex items-center justify-center rounded-none bg-primary px-8 py-3 text-sm font-bold text-background transition-all hover:opacity-90 active:scale-95"
+			>
+				Post Comment
+			</button>
+		</div>
 	</form>
 </div>

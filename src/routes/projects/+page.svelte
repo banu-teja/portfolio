@@ -1,66 +1,54 @@
 <script>
 	import { projects } from '$lib/data/projects';
+	import { Icon, ArrowRight } from 'svelte-hero-icons';
 </script>
 
 <svelte:head>
 	<title>Projects | Bhanu Teja</title>
 </svelte:head>
 
-<main>
-	<!--	<h1 class="mb-12 text-3xl font-medium text-gray-900">My Projects</h1>-->
+<section class="py-24">
+	<div class="mb-12 border-b border-border pb-6">
+		<h1 class="text-4xl md:text-6xl font-black tracking-tighter text-primary mb-4">
+			Selected Work
+		</h1>
+		<p class="text-xl text-muted-foreground max-w-2xl font-light">
+			A collection of projects exploring web development, cloud infrastructure, and AI.
+		</p>
+	</div>
 
-	<div class="space-y-6">
+	<!-- Sharp Edges Grid -->
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-border">
 		{#each projects as project}
-			<div
-				class="group overflow-hidden rounded-lg border border-gray-200 bg-white transition-colors hover:bg-gray-50"
+			<a href={project.link} target="_blank" rel="noopener noreferrer"
+				class="group relative flex flex-col justify-between p-8 border-r border-b border-border bg-background transition-colors duration-300 hover:bg-surface h-[400px]"
 			>
-				<div class="p-6">
-					<h2 class="mb-3 text-xl font-medium text-gray-800">{project.title}</h2>
-					<p class="mb-4 leading-relaxed text-gray-600">{project.description}</p>
-					<div class="mb-4 flex flex-wrap gap-2">
-						{#each project.technologies as tech}
-							<span
-								class="inline-flex items-center rounded-full bg-teal-50 px-3 py-1 text-xs font-medium text-teal-600 ring-1 ring-inset ring-teal-500/20"
-							>
-								{tech}
-							</span>
-						{/each}
+				<!-- Content -->
+				<div class="relative z-20 h-full flex flex-col justify-between">
+					<div>
+						<div class="flex gap-2 mb-6">
+							{#each project.technologies.slice(0, 3) as tech}
+								<span class="px-2 py-1 text-xs font-mono uppercase tracking-wider text-muted-foreground border border-border">
+									{tech}
+								</span>
+							{/each}
+						</div>
+
+						<h3 class="text-2xl font-bold text-primary mb-3 group-hover:underline decoration-1 underline-offset-4">
+							{project.title}
+						</h3>
+
+						<p class="text-muted-foreground text-sm leading-relaxed line-clamp-4">
+							{project.description}
+						</p>
+					</div>
+
+					<div class="inline-flex items-center text-sm font-semibold text-primary mt-auto">
+						View Project
+						<Icon src={ArrowRight} class="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
 					</div>
 				</div>
-				<div class="border-t border-gray-100 px-6 py-4">
-					<a
-						href={project.link}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="inline-flex items-center text-sm font-medium text-teal-500 transition-colors group-hover:text-teal-600"
-					>
-						View Project
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1"
-							viewBox="0 0 20 20"
-							fill="currentColor"
-						>
-							<path
-								fill-rule="evenodd"
-								d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-								clip-rule="evenodd"
-							/>
-						</svg>
-					</a>
-				</div>
-			</div>
+			</a>
 		{/each}
 	</div>
-</main>
-
-<style>
-	/* Optional: Add a smooth transition for the technology tags */
-	span {
-		transition: all 0.2s ease-in-out;
-	}
-
-	span:hover {
-		transform: translateY(-1px);
-	}
-</style>
+</section>
