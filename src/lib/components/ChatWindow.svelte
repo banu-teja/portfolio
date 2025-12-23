@@ -51,7 +51,7 @@
 				class="sticky top-0 z-10 flex w-full items-center justify-between rounded-t-2xl bg-gradient-to-r from-teal-400 to-teal-500 p-4 text-white"
 			>
 				<h3 class="text-lg font-semibold">Chat Support</h3>
-				<button on:click={toggleChat} class="text-white transition hover:text-teal-200">
+				<button on:click={toggleChat} class="text-white transition hover:text-teal-200" aria-label="Close chat">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-6 w-6"
@@ -90,6 +90,7 @@
 						<button
 							type="submit"
 							class="ml-3 transform rounded-full bg-gradient-to-r from-teal-400 to-teal-500 p-2 text-white transition hover:scale-110 hover:from-teal-500 hover:to-teal-600 active:scale-90"
+							aria-label="Send message"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -116,6 +117,7 @@
 		class="transform rounded-full bg-gradient-to-r from-teal-400 to-teal-500 p-3 text-white shadow-lg transition hover:scale-110 hover:from-teal-500 hover:to-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 active:scale-90"
 		in:fade={{ duration: 200 }}
 		out:fade={{ duration: 200 }}
+		aria-label="Toggle chat"
 	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

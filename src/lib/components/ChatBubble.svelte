@@ -13,7 +13,7 @@
 			class="bubble-tip h-0 w-0 border-solid border-transparent {message.sender === 'user'
 				? 'border-r-teal-500'
 				: 'border-l-gray-200'} border-8"
-		/>
+		></div>
 	</div>
 </div>
 
@@ -33,11 +33,11 @@
 		color: white; /* White text for user messages */
 	}
 
-	.bubble-tip.user {
+	.user .bubble-tip {
 		border-top-color: #10b981; /* Match the teal user bubble */
 	}
 
-	.bubble-tip.bot {
+	.bot .bubble-tip {
 		border-top-color: #f8fafc;
 	}
 </style>
