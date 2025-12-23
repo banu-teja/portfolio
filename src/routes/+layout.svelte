@@ -9,6 +9,7 @@
 	import { onMount } from 'svelte';
 	import { setPage } from '$lib/stores';
 	import ChatWindow from '$lib/components/ChatWindow.svelte';
+	import { browser } from '$app/environment';
 
 	let { children, data } = $props();
 
@@ -16,10 +17,22 @@
 
 	onMount(() => {
 		navItems.map((item) => item.route).forEach(preloadCode);
+
+		// Initialize Theme
+		if (browser) {
+			const isDark = localStorage.getItem('theme') === 'dark' ||
+				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+			if (isDark) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark');
+			}
+		}
 	});
 </script>
 
-<div class="relative flex min-h-screen flex-col bg-background text-primary selection:bg-white selection:text-black overflow-x-hidden">
+<div class="relative flex min-h-screen flex-col bg-background text-primary selection:bg-primary selection:text-background overflow-x-hidden">
 
 	<Header />
 
@@ -40,30 +53,3 @@
 	<Footer />
 	<ChatWindow />
 </div>
-
-<style>
-	:global(html) {
-		scroll-behavior: smooth;
-		color-scheme: dark;
-	}
-	:global(body) {
-		font-family: 'Inter', sans-serif;
-		background-color: #000000;
-		color: #ffffff;
-	}
-
-	/* Custom Scrollbar - Minimal */
-	:global(::-webkit-scrollbar) {
-		width: 6px;
-	}
-	:global(::-webkit-scrollbar-track) {
-		background: #000000;
-	}
-	:global(::-webkit-scrollbar-thumb) {
-		background: #333333;
-		border-radius: 0px;
-	}
-	:global(::-webkit-scrollbar-thumb:hover) {
-		background: #555555;
-	}
-</style>

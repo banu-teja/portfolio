@@ -3,7 +3,6 @@ import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
-import colors from 'tailwindcss/colors';
 
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -16,36 +15,32 @@ export default {
 				display: ['Cal Sans', 'Inter', ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
-				// Strict Monochrome Palette
-				background: '#000000',
-				surface: '#0a0a0a',       // Very subtle off-black for cards
-				surfaceHighlight: '#171717', // Slightly lighter for hovers
-				border: '#262626',        // Dark gray border
+				background: 'rgb(var(--background) / <alpha-value>)',
+				surface: 'rgb(var(--surface) / <alpha-value>)',
+				surfaceHighlight: 'rgb(var(--surface-highlight) / <alpha-value>)',
+				border: 'rgb(var(--border) / <alpha-value>)',
 
-				// Re-mapping primitives
-				gray: colors.neutral,
-
-				// Functional colors
 				primary: {
-					DEFAULT: '#ffffff',
-					foreground: '#000000',
+					DEFAULT: 'rgb(var(--primary) / <alpha-value>)',
+					foreground: 'rgb(var(--primary-foreground) / <alpha-value>)',
 				},
 				secondary: {
-					DEFAULT: '#171717',
-					foreground: '#ffffff',
+					DEFAULT: 'rgb(var(--secondary) / <alpha-value>)',
+					foreground: 'rgb(var(--secondary-foreground) / <alpha-value>)',
 				},
 				muted: {
-					DEFAULT: '#737373', // Neutral 500
-					foreground: '#a3a3a3', // Neutral 400
+					DEFAULT: 'rgb(var(--muted) / <alpha-value>)',
+					foreground: 'rgb(var(--muted-foreground) / <alpha-value>)',
 				},
 				accent: {
-					DEFAULT: '#ffffff',
-					foreground: '#000000',
+					DEFAULT: 'rgb(var(--primary) / <alpha-value>)',
+					foreground: 'rgb(var(--primary-foreground) / <alpha-value>)',
 				}
 			},
-			backgroundImage: {
-				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				// Removed colored glows
+			borderRadius: {
+				lg: 'var(--radius)',
+				md: 'calc(var(--radius) - 2px)',
+				sm: 'calc(var(--radius) - 4px)',
 			},
 			animation: {
 				'fade-in': 'fadeIn 0.5s ease-out forwards',

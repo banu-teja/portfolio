@@ -40,7 +40,7 @@
 	</div>
 </section>
 
-<!-- Featured Projects (Bento Grid Style - Sharp Edges) -->
+<!-- Featured Projects (Symmetrical Grid) -->
 <section class="py-24">
 	<div class="flex items-end justify-between mb-12 border-b border-border pb-6">
 		<div>
@@ -53,14 +53,12 @@
 		</a>
 	</div>
 
+	<!-- Symmetrical Grid: 1 col on mobile, 3 cols on large screens -->
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-border">
-		{#each projects.slice(0, 3) as project, i}
-			<!-- Grid Items with visible borders -->
+		{#each projects.slice(0, 3) as project}
 			<a href={project.link} target="_blank" rel="noopener noreferrer"
-				class="group relative flex flex-col justify-between p-8 border-r border-b border-border bg-background transition-colors duration-300 hover:bg-surface
-				{i === 0 ? 'md:col-span-2' : ''} h-[400px]"
+				class="group relative flex flex-col justify-between p-8 border-r border-b border-border bg-background transition-colors duration-300 hover:bg-surface h-[400px]"
 			>
-				<!-- Content -->
 				<div class="relative z-20 h-full flex flex-col justify-between">
 					<div>
 						<div class="flex gap-2 mb-6">
@@ -90,47 +88,49 @@
 	</div>
 </section>
 
-<!-- Latest Writings (Minimalist List) -->
+<!-- Latest Writings (Full width list) -->
 <section class="py-24">
-	<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-		<div class="md:col-span-4">
-			<h2 class="text-3xl font-bold tracking-tight text-primary mb-4">Latest Writings</h2>
-			<p class="text-muted-foreground mb-6 max-w-xs">Thoughts on software development, design, and building products.</p>
-			<a href="/blog" class="inline-flex items-center text-sm font-medium text-primary hover:underline decoration-1 underline-offset-4 transition-all">
-				Read all articles
-				<Icon src={ArrowLongRight} class="w-5 h-5 ml-2" />
-			</a>
+	<div class="mb-12 border-b border-border pb-6 flex items-end justify-between">
+		<div>
+			<h2 class="text-3xl font-bold tracking-tight text-primary mb-2">Latest Writings</h2>
+			<p class="text-muted-foreground">Thoughts on software development, design, and building products.</p>
 		</div>
+		<a href="/blog" class="inline-flex items-center text-sm font-medium text-primary hover:underline decoration-1 underline-offset-4 transition-all">
+			Read all articles
+			<Icon src={ArrowLongRight} class="w-5 h-5 ml-2" />
+		</a>
+	</div>
 
-		<div class="md:col-span-8">
-			{#if posts.length === 0}
-				<div class="border border-dashed border-border bg-surface/50 p-12 flex flex-col items-center justify-center text-center h-full">
-					<div class="w-12 h-12 bg-surface border border-border flex items-center justify-center mb-4 text-muted-foreground">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-						</svg>
-					</div>
-					<p class="text-primary font-medium">No posts available yet.</p>
-					<p class="text-muted-foreground text-sm mt-1">Check back soon for updates!</p>
+	<div class="w-full">
+		{#if posts.length === 0}
+			<div class="border border-dashed border-border bg-surface/50 p-12 flex flex-col items-center justify-center text-center h-full">
+				<div class="w-12 h-12 bg-surface border border-border flex items-center justify-center mb-4 text-muted-foreground">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+					</svg>
 				</div>
-			{:else}
-				<div class="divide-y divide-border border-t border-b border-border">
-					{#each posts.slice(0, 3) as post}
-						<a href="/blog" class="group block py-6 hover:bg-surface transition-colors duration-200">
-							<article class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
-								<h3 class="text-xl font-medium text-primary group-hover:underline decoration-1 underline-offset-4">
+				<p class="text-primary font-medium">No posts available yet.</p>
+				<p class="text-muted-foreground text-sm mt-1">Check back soon for updates!</p>
+			</div>
+		{:else}
+			<div class="divide-y divide-border border-t border-b border-border">
+				{#each posts.slice(0, 3) as post}
+					<a href="/blog" class="group block py-8 hover:bg-surface transition-colors duration-200">
+						<article class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-4">
+							<div class="max-w-2xl">
+								<h3 class="text-2xl font-medium text-primary group-hover:underline decoration-1 underline-offset-4 mb-2">
 									{post.title}
 								</h3>
-								<time datetime="2023-01-01" class="text-sm font-mono text-muted-foreground whitespace-nowrap">Oct 24, 2023</time>
-							</article>
-							<p class="text-muted-foreground text-sm mt-2 line-clamp-1">
-								{post.excerpt}
-							</p>
-						</a>
-					{/each}
-				</div>
-			{/if}
-		</div>
+								<p class="text-muted-foreground text-base line-clamp-2">
+									{post.excerpt}
+								</p>
+							</div>
+							<time datetime="2023-01-01" class="text-sm font-mono text-muted-foreground whitespace-nowrap pt-1">Oct 24, 2023</time>
+						</article>
+					</a>
+				{/each}
+			</div>
+		{/if}
 	</div>
 </section>
 
